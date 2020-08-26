@@ -1,0 +1,33 @@
+apiVersion: operator.kubermatic.io/v1alpha1
+kind: KubermaticConfiguration
+metadata:
+  name: kubermatic
+  namespace: kubermatic
+spec:
+  # These secret keys configure the way components commmunicate with Dex.
+  auth:
+    # this must match the secret configured for the kubermatic client from
+    # the values.yaml.
+    issuerClientSecret: nzzP4Olor2vzAJwZSBDL5QcVtNMYE1xM
+
+    # these need to be randomly generated
+    #
+    #issuerCookieKey: <a-random-key>
+    issuerCookieKey: 635kRsBMY0t9sGgRQlOnfvyHF9Knq63O
+    #serviceAccountKey: <another-random-key>
+    serviceAccountKey: 0At9dr0P6HPLmXsxlGgJ7zCXQbMamf0T
+  imagePullSecret: |
+    {
+      "auths": {
+        "quay.io": {
+#          "auth": "TODO ADD PULL SECRET",
+          "email": ""
+        }
+      }
+    }
+  ingress:
+    # this domain must match what you configured as dex.ingress.host
+    # in the values.yaml
+    domain: kubermatic.TODO-STUDENT-DNS.loodse.training
+    certificateIssuer:
+      name: letsencrypt-prod
