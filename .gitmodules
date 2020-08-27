@@ -1,3 +1,6 @@
 [submodule "kubermatic-labs"]
 	path = kubermatic-repo
 	url = https://github.com/kubermatic/kubermatic.git
+[submodule "kubermatic-repo"]
+	path = kubermatic-repo
+	url = https://github.com/kubermatic/kubermatic.git
